@@ -72,19 +72,6 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.cz-jira-smart-commit.prompter">module cz-jira-smart-commit.prompter</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.cz-jira-smart-commit.prompter.prompter">
-            function <span class="apidocSignatureSpan">cz-jira-smart-commit.</span>prompter
-            <span class="apidocSignatureSpan">(cz, commit)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -93,91 +80,6 @@
 
     <h2>
         <a href="#apidoc.element.cz-jira-smart-commit.prompter" id="apidoc.element.cz-jira-smart-commit.prompter">
-        function <span class="apidocSignatureSpan">cz-jira-smart-commit.</span>prompter
-        <span class="apidocSignatureSpan">(cz, commit)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function prompter(cz, commit) {
-
-  // Let&#x27;s ask some questions of the user
-  // so that we can populate our commit
-  // template.
-  //
-  // See inquirer.js docs for specifics.
-  // You can also opt to use another input
-  // collection library if you prefer.
-  inquirer.prompt([
-    {
-      type: &#x27;input&#x27;,
-      name: &#x27;message&#x27;,
-      message: &#x27;GitHub commit message (required):\n&#x27;,
-      validate: function(input) {
-        if (!input) {
-          return &#x27;empty commit message&#x27;;
-        } else {
-          return true;
-        }
-      }
-    },
-    {
-      type: &#x27;input&#x27;,
-      name: &#x27;issues&#x27;,
-      message: &#x27;Jira Issue ID(s) (required):\n&#x27;,
-      validate: function(input) {
-        if (!input) {
-          return &#x27;Must specify issue IDs, otherwise, just use a normal commit message&#x27;;
-        } else {
-          return true;
-        }
-      }
-    },
-    {
-      type: &#x27;input&#x27;,
-      name: &#x27;workflow&#x27;,
-      message: &#x27;Workflow command (testing, closed, etc.) (optional):\n&#x27;,
-      validate: function(input) {
-        if (input &#x26;&#x26; input.indexOf(&#x27; &#x27;) !== -1) {
-          return &#x27;Workflows cannot have spaces in smart commits. If your workflow name has a space, use a dash (-)&#x27;;
-        } else {
-          return true;
-        }
-      }
-    },
-    {
-      type: &#x27;input&#x27;,
-      name: &#x27;time&#x27;,
-      message: &#x27;Time spent (i.e. 3h 15m) (optional):\n&#x27;
-    },
-    {
-      type: &#x27;input&#x27;,
-      name: &#x27;comment&#x27;,
-      message: &#x27;Jira comment (optional):\n&#x27;
-    },
-  ], commitAnswers);
-
-  function commitAnswers(answers) {
-    commit(filter([
-      answers.message,
-      answers.issues,
-      answers.workflow ? &#x27;#&#x27; + answers.workflow : undefined,
-      answers.time ? &#x27;#time &#x27; + answers.time : undefined,
-      answers.comment ? &#x27;#comment &#x27; + answers.comment : undefined,
-    ]).join(&#x27; &#x27;));
-  }
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.cz-jira-smart-commit.prompter" id="apidoc.module.cz-jira-smart-commit.prompter">module cz-jira-smart-commit.prompter</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.cz-jira-smart-commit.prompter.prompter" id="apidoc.element.cz-jira-smart-commit.prompter.prompter">
         function <span class="apidocSignatureSpan">cz-jira-smart-commit.</span>prompter
         <span class="apidocSignatureSpan">(cz, commit)</span>
         </a>
